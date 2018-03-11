@@ -1,0 +1,2 @@
+Quale di questi ortaggi è di colore rosso?;Peperone;11
+Quale di questi ortaggi è un fittone?;Carota;12
