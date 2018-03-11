@@ -2,8 +2,8 @@ package timeout;
 
 public class TimeoutFirer extends Thread {
 	
-	private int seconds = 0;
-	private TimeoutListener listener;
+	private int _seconds = 0;
+	private TimeoutListener _listener;
 	
 	private static TimeoutFirer instance = null;
 	private static TimeoutListener stol = null;
@@ -11,23 +11,23 @@ public class TimeoutFirer extends Thread {
 	private TimeoutFirer() {}
 	
 	private void setTime(int seconds) {
-		this.seconds = seconds;
+		_seconds = seconds;
 	}
 	
-	private void setListener(TimeoutListener tol) {
-		listener = tol;
+	private void setListener(TimeoutListener listener) {
+		_listener = listener;
 	}
 	
 	@Override
 	public void run() {
 		try{ 
-			sleep(1000*this.seconds);
+			sleep(1000*_seconds);
 		} catch (InterruptedException e) {
 			return;
 		}
 		TimeoutEvent e = new TimeoutEvent(this);
-		if(listener != null) {
-			listener.onTimeoutCatched(e);
+		if(_listener != null) {
+			_listener.onTimeoutCatched(e);
 		}
 	}
 	

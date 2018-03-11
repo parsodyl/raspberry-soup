@@ -6,6 +6,8 @@ import state.StateMachine;
 
 public class SpeakerController {
 	
+	private SpeakerController() {}
+	
 	public static void speakIntro() {
 		IOController.getInstance().playAudioInBackground(CommonMessages.getIntroAudioFile());
 	}

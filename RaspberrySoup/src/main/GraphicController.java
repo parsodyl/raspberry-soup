@@ -6,9 +6,11 @@ import gui.GameFrame;
 
 public class GraphicController {
 	
-	final private static String QUESTION_LIST_FILE_NAME = "lista.txt";
+	final private static String QUESTION_LIST_FILE_NAME = "list.txt";
 	
 	private static GameFrame mainFrame = new GameFrame(IOController.getInstance());
+	
+	private GraphicController() {}
 	
 	public static void writeStartMessage() {
 		mainFrame.setMessageLabel("Clicca su start per una nuova partita.");

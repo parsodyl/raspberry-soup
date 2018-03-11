@@ -3,7 +3,7 @@ package state;
 import input.StopSpeakInput;
 import input.Input;
 import main.GraphicController;
-import main.IOController;
+import main.UserInputController;
 import main.WaitingController;
 
 public class AskingState implements State {
@@ -35,6 +35,6 @@ public class AskingState implements State {
 	}
 	
 	private void enableTouch() {
-		IOController.getInstance().enableTouch();
+		UserInputController.enableTouch();
 	}
 }

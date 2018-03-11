@@ -3,8 +3,8 @@ package state;
 import input.Input;
 import input.StartGameInput;
 import main.GraphicController;
-import main.IOController;
 import main.SpeakerController;
+import main.UserInputController;
 
 public class IdleState implements State {
 
@@ -45,7 +45,7 @@ public class IdleState implements State {
 	}
 	
 	private void disableTouch() {
-		IOController.getInstance().disableTouch();
+		UserInputController.disableTouch();
 	}
 
 }

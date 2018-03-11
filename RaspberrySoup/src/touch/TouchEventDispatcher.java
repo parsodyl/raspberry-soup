@@ -26,7 +26,7 @@ public class TouchEventDispatcher implements KeyEventDispatcher {
 		if(event.getID() == KeyEvent.KEY_PRESSED) {
 			int k = event.getKeyCode();
 			if(isAdmittedKey(k)) {
-				fireTouchEvent(k);
+				this.fireTouchEvent(k);
 			}
 		}
 		return true;

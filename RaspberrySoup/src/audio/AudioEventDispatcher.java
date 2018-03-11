@@ -22,10 +22,10 @@ public class AudioEventDispatcher implements LineListener {
 	public void update(LineEvent event) {
 		if (event.getType() == LineEvent.Type.STOP) {
 			event.getLine().close();
-			fireAudioEvent(this.STOP);
+			this.fireAudioEvent(this.STOP);
 		}
 		if (event.getType() == LineEvent.Type.START) {
-			fireAudioEvent(this.START);
+			this.fireAudioEvent(this.START);
 		}
 		
 	}

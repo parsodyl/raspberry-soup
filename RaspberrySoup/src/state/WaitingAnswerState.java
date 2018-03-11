@@ -5,8 +5,8 @@ import input.Input;
 import input.TimeoutInput;
 import logic.Vegetable;
 import main.GraphicController;
-import main.IOController;
 import main.SpeakerController;
+import main.UserInputController;
 import runtime.KeyToVegMap;
 
 public class WaitingAnswerState implements State {
@@ -76,7 +76,7 @@ public class WaitingAnswerState implements State {
 	}
 	
 	private void disableTouch() {
-		IOController.getInstance().disableTouch();
+		UserInputController.disableTouch();
 	}
 	
 	// utilities

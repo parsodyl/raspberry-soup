@@ -12,50 +12,52 @@ import java.awt.event.ActionListener;
 public class GameFrame extends JFrame  implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private JLabel messageLabel = null;
-	private JPanel contentPane = null;
-	private JButton startButton = null;
-	private JTextPane questionPane = null;
-	private InitPanel initP = null;
+	
+	private JLabel _messageLabel;
+	private JPanel _contentPane;
+	private JButton _startButton;
+	private JTextPane _questionPane;
+	private InitPanel _initPanel;
 	
 	public void setMessageLabel(String answer) {
-		this.messageLabel.setText(answer);
+		_messageLabel.setText(answer);
 	}
 	
 	public void setEnableOfStartButton(boolean what) {
-		this.startButton.setEnabled(what);
+		_startButton.setEnabled(what);
 	}
 	
 	public void setQuestionPane(String text) {
-		this.questionPane.setText(text);
+		_questionPane.setText(text);
 	}
 	
 	public GameFrame(ActionListener actionListener) { 
-		
-		this.messageLabel = new JLabel("answerLabel");
-		messageLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		
-		this.startButton = new JButton("Start");
-		this.startButton.addActionListener(actionListener);
-		
-		this.questionPane = new JTextPane();
-		this.questionPane.setEditable(false);
-		this.questionPane.setFont(new Font("Tahoma", Font.PLAIN, 18));
-
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 280);
-		contentPane = PanelFactory.createJPanel(messageLabel,startButton,questionPane);
-		initP = new InitPanel();
-		initP.addButtonListener(this);
-		setContentPane(initP);
+		// message label
+		_messageLabel = new JLabel("");
+		_messageLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		// start button
+		_startButton = new JButton("Start");
+		_startButton.addActionListener(actionListener);
+		// question pane
+		_questionPane = new JTextPane();
+		_questionPane.setEditable(false);
+		_questionPane.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		// make window
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setBounds(100, 100, 750, 280);
+		_contentPane = PanelFactory.createJPanel(_messageLabel,_startButton,_questionPane);
+		// make init panel
+		_initPanel = new InitPanel();
+		_initPanel.addButtonListener(this);
+		setContentPane(_initPanel);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		initP.saveVegs();
-		getContentPane().setVisible(false);
-		setContentPane(contentPane);
-		getContentPane().repaint();
+		_initPanel.saveVegs();
+		this.getContentPane().setVisible(false);
+		this.setContentPane(_contentPane);
+		this.getContentPane().repaint();
 	}
 	
 	
